@@ -1,4 +1,4 @@
-<h1 style="text-align: center">Caesar Cipher Encryptor (Шифратор Цезаря)"</h1>
+<h1 style="text-align: center">Caesar Cipher Encryptor (Шифратор Цезаря)</h1>
 
 
 <p align="center">
