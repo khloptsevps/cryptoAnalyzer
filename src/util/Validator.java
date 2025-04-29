@@ -1,5 +1,7 @@
 package util;
 import actions.Actions;
+
+import java.nio.file.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,12 +18,17 @@ public class Validator {
         return ACTIONS.contains(actionName.toLowerCase());
     }
 
-    public static boolean validateFile(String pathToFile) {
-        // TODO логику валидации файла, существует ли файл по переданному пути
-        return false;
+    public static boolean isFileExistAndReadable(Path pathToFile) {
+        return Files.isRegularFile(pathToFile) && Files.isReadable(pathToFile);
     }
-    public static boolean validatePath(String pathToFile) {
-        // TODO логику валидации пути, проверить корректен ли путь.
-        return false;
+
+    public static boolean isDirectory(Path path) {
+        return Files.isDirectory(path);
+    }
+
+    public static boolean isTxtFile(Path path) {
+        return path.getFileName().toString().toLowerCase().endsWith(".txt");
+
+
     }
 }
