@@ -18,13 +18,13 @@ public class ConsoleView implements View {
 
     @Override
     public String requestPath(String message) {
-        System.out.print(message);
+        System.out.print("\uD83D\uDD24 " + message);
         return console.nextLine();
     }
 
     @Override
-    public String requestAction(String message) {
-        System.out.print(message);
+    public String requestUserInput(String message) {
+        System.out.print("\uD83D\uDD22 " + message);
         return console.nextLine();
     }
 
