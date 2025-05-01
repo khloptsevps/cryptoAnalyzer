@@ -13,7 +13,8 @@ public class ConsoleController {
 
     private String action;
     private Path pathToInputFile;
-
+    private Path outputPath;
+    private int key;
 
 
     public ConsoleController(View view) {
@@ -28,12 +29,17 @@ public class ConsoleController {
         view.printMessage(message);
 
         view.showMenu();
-        message = "\uD83D\uDD22 Выберите действие: ";
+        message = "Выберите действие: ";
         action = getAction(message);
 
-        message = "\uD83D\uDD24 Введите путь к исходному файлу: ";
+        message = "Введите путь ко входящему файлу: ";
         pathToInputFile = getPathToInputFile(message);
 
+        message = "Введите путь к исходящему файлу или директории: ";
+        outputPath = getPathToOutput(message);
+
+        message = "Введите ключ сдвига: ";
+        key = getShiftKey(message);
         showInfo();
     }
 
@@ -42,8 +48,8 @@ public class ConsoleController {
         System.out.println("Состояние контроллера:");
         System.out.println("Действие: " + action);
         System.out.println("Путь ко входящему файлу: " + pathToInputFile);
-        System.out.println("Путь к исходящему файлу или директории: отсутствует");
-        System.out.println("Ключ шифрования: отсутствует");
+        System.out.println("Путь к исходящему файлу или директории: " + outputPath);
+        System.out.println("Ключ шифрования: " + key);
         message = "Завершение работы программы!";
         view.printMessage(message);
         System.out.println("----------------------------------------");
@@ -54,7 +60,7 @@ public class ConsoleController {
         Actions[] actions = Actions.values();
         while (true) {
             try {
-                String input = view.requestAction(message);
+                String input = view.requestUserInput(message);
                 result = actions[Integer.parseInt(input) - 1].name().toLowerCase();
                 return result;
             } catch (NumberFormatException e) {
@@ -68,12 +74,12 @@ public class ConsoleController {
     }
 
     private Path getPathToInputFile(String message) {
+        Path pathToFile;
         while (true) {
             String input = view.requestPath(message);
-            Path pathToFile;
             if (input.isEmpty()) {
                 pathToFile = pb.getDefaultPath("input.txt");
-                view.printMessage("✅ Установлен путь по умолчанию: " + pathToFile);
+                view.printMessage("✅ Установлен путь по умолчанию: " + pathToFile + "\n");
             } else {
                 pathToFile = pb.getPath(input);
             }
@@ -85,6 +91,42 @@ public class ConsoleController {
                 }
             } else {
                 view.printError("Файл не существует или его нельзя прочитать!");
+            }
+        }
+    }
+
+    private Path getPathToOutput(String message) {
+        Path pathToFile;
+        while (true) {
+            String input = view.requestPath(message);
+            if (input.isEmpty()) {
+                pathToFile = pb.getDefaultPath();
+                view.printMessage("✅ Установлен путь по умолчанию: " + pathToFile + "\n");
+            } else {
+                pathToFile = pb.getPath(input);
+            }
+            if (pathToFile.getFileName().toString().contains(".")) {
+                if (Validator.isTxtFile(pathToFile)) {
+                    return pathToFile;
+                } else {
+                    view.printError("Исходящий файл должен быть .txt или директорией!");
+                }
+            } else {
+                return pathToFile;
+            }
+        }
+    }
+
+    private int getShiftKey(String message) {
+        int result;
+        while (true) {
+            try {
+                String input = view.requestUserInput("\uD83D\uDD11 " + message);
+                result = Integer.parseInt(input);
+                return result;
+            } catch (NumberFormatException e) {
+                view.printError("Необходимо ввести целое число!");
+                message = "Повторите ввод: ";
             }
         }
     }
