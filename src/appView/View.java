@@ -5,5 +5,5 @@ public interface View {
     void printError(String message);
     String requestPath(String message);
     void showMenu();
-    String requestAction(String message);
+    String requestUserInput(String message);
 }
