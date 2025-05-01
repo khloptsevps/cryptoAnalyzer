@@ -1,9 +1,15 @@
+import appController.ConsoleController;
+import appView.ConsoleView;
+import appView.View;
+
 public class CryptoAnalyzer {
     public static void main(String[] args) {
-        // если параметров нет, то запускаем интерактивный режим
-        // если пришли параметры из командной строки проверяем сколько их.
+        // Если параметров нет, то запускаем консольный режим
         // args из командной строки действие, путь до файла, путь выходного файла, ключ.
-        // args нужно передать в конструктор нужного экземпляра приложения.
-        // установка состояния приложения будет производится в экземпляре приложения.
+        // Установка состояния приложения в контроллере.
+
+        View ui = new ConsoleView();
+        ConsoleController controller = new ConsoleController(ui);
+        controller.run();
     }
 }
