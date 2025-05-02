@@ -8,7 +8,7 @@ public class ConsoleView implements View {
 
     @Override
     public void printMessage(String message) {
-        System.out.println(message);
+        System.out.println(message + "\n");
     }
 
     @Override
@@ -35,5 +35,6 @@ public class ConsoleView implements View {
         for (int i = 0; i < actions.length; i++) {
             System.out.printf("\t %d. %s - %s%n", i + 1, actions[i].name().toLowerCase(), actions[i].getLabel());
         }
+        System.out.println();
     }
 }
