@@ -1,8 +1,8 @@
-package actions;
+package model.actions;
 
 public enum Actions {
-    ENCRYPT("зашифровать"),
-    DECRYPT("расшифровать");
+    ENCRYPT("\uD83D\uDD10 Зашифровать"),
+    DECRYPT("\uD83D\uDD13 Расшифровать");
 
     private final String label;
 
