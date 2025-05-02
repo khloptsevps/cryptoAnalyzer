@@ -1,6 +1,6 @@
 package appView;
 
-import actions.Actions;
+import model.actions.Actions;
 import java.util.Scanner;
 
 public class ConsoleView implements View {
@@ -29,11 +29,10 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public void showMenu() {
+    public void showMenu(Actions[] actions) {
         System.out.println("\uD83D\uDCCB Доступные действия: ");
-        Actions[] actions = Actions.values();
         for (int i = 0; i < actions.length; i++) {
-            System.out.printf("\t %d. %s - %s%n", i + 1, actions[i].name().toLowerCase(), actions[i].getLabel());
+            System.out.printf("\t %d. %s%n", i + 1,  actions[i].getLabel());
         }
         System.out.println();
     }
