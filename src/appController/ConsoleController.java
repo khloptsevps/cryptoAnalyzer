@@ -77,20 +77,17 @@ public class ConsoleController {
         Path pathToFile;
         while (true) {
             String input = view.requestPath(message);
-            if (input.isEmpty()) {
-                pathToFile = pb.getDefaultPath("input.txt");
-                view.printMessage("✅ Установлен путь по умолчанию: " + pathToFile + "\n");
-            } else {
-                pathToFile = pb.getPath(input);
-            }
+            pathToFile = input.isEmpty() ? pb.getDefaultPath("input.txt") : pb.getPath(input);
+
             if (Validator.isValidAndReadableFile(pathToFile)) {
                 if (Validator.isTxtFile(pathToFile)) {
+                    view.printMessage("✅ Установлен путь " + pathToFile + "\n");
                     return pathToFile;
                 } else {
                     view.printError("Это не .txt файл.");
                 }
             } else {
-                view.printError("Файл не существует или его нельзя прочитать!");
+                view.printError("Файл не существует или его нельзя прочитать!\n");
             }
         }
     }
@@ -99,21 +96,18 @@ public class ConsoleController {
         Path pathToFile;
         while (true) {
             String input = view.requestPath(message);
-            if (input.isEmpty()) {
-                pathToFile = pb.getDefaultPath();
-                view.printMessage("✅ Установлен путь по умолчанию: " + pathToFile + "\n");
-            } else {
-                pathToFile = pb.getPath(input);
-            }
-            if (pathToFile.getFileName().toString().contains(".")) {
-                if (Validator.isTxtFile(pathToFile)) {
-                    return pathToFile;
-                } else {
-                    view.printError("Исходящий файл должен быть .txt или директорией!");
-                }
-            } else {
+            pathToFile = input.isEmpty() ? pb.getDefaultPath() : pb.getPath(input);
+            view.printMessage("✅ Установлен путь: " + pathToFile + "\n");
+
+            if (Validator.isTxtFile(pathToFile)) {
                 return pathToFile;
             }
+
+            if (Validator.isProbablyDirectory(pathToFile)) {
+                return pathToFile;
+            }
+
+            view.printError("Исходящий файл должен быть .txt или директорией!");
         }
     }
 
