@@ -13,7 +13,7 @@ public class ConsoleView implements View {
 
     @Override
     public void printError(String message) {
-        System.out.printf("❌ %s ", message);
+        System.out.printf("❌ %s", message);
     }
 
     @Override
