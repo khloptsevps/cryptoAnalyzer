@@ -2,6 +2,8 @@ package appController;
 
 import actions.Actions;
 import appView.View;
+import model.CaesarCipherModel;
+import model.dto.CipherRequest;
 import util.PathBuilder;
 import util.Validator;
 
@@ -9,53 +11,28 @@ import java.nio.file.Path;
 
 public class ConsoleController {
     private final View view;
-    private String message;
+    private final CaesarCipherModel model;
 
-    private String action;
-    private Path pathToInputFile;
-    private Path outputPath;
-    private int key;
-
-
-    public ConsoleController(View view) {
+    public ConsoleController(View view, CaesarCipherModel model) {
         this.view = view;
+        this.model = model;
     }
 
     PathBuilder pb = new PathBuilder();
 
 
     public void run() {
-        message = "***** Шифр Цезаря (Консольный режим) *****";
-        view.printMessage(message);
-
-        view.showMenu();
-        message = "Выберите действие: ";
-        action = getAction(message);
-
-        message = "Введите путь ко входящему файлу: ";
-        pathToInputFile = getPathToInputFile(message);
-
-        message = "Введите путь к исходящему файлу или директории: ";
-        outputPath = getPathToOutput(message);
-
-        message = "Введите ключ сдвига: ";
-        key = getShiftKey(message);
-        showInfo();
+        printIntro();
+        CipherRequest request = new CipherRequest(
+                requestAction(),
+                requestPathToInputFile(),
+                requestPathToOutput(),
+                requestShiftKey()
+        );
     }
 
-    private void showInfo() {
-        System.out.println("----------------------------------------");
-        System.out.println("Состояние контроллера:");
-        System.out.println("Действие: " + action);
-        System.out.println("Путь ко входящему файлу: " + pathToInputFile);
-        System.out.println("Путь к исходящему файлу или директории: " + outputPath);
-        System.out.println("Ключ шифрования: " + key);
-        message = "Завершение работы программы!";
-        view.printMessage(message);
-        System.out.println("----------------------------------------");
-    }
-
-    private String getAction(String message) {
+    private String requestAction() {
+        String message = "Выберите действие: ";
         String result;
         Actions[] actions = Actions.values();
         while (true) {
@@ -73,15 +50,15 @@ public class ConsoleController {
         }
     }
 
-    private Path getPathToInputFile(String message) {
+    private Path requestPathToInputFile() {
         Path pathToFile;
         while (true) {
-            String input = view.requestPath(message);
+            String input = view.requestPath("Введите путь ко входящему файлу: ");
             pathToFile = input.isEmpty() ? pb.getDefaultPath("input.txt") : pb.getPath(input);
 
             if (Validator.isValidAndReadableFile(pathToFile)) {
                 if (Validator.isTxtFile(pathToFile)) {
-                    view.printMessage("✅ Установлен путь " + pathToFile + "\n");
+                    view.printMessage("✅ Установлен путь " + pathToFile);
                     return pathToFile;
                 } else {
                     view.printError("Это не .txt файл.");
@@ -92,12 +69,12 @@ public class ConsoleController {
         }
     }
 
-    private Path getPathToOutput(String message) {
+    private Path requestPathToOutput() {
         Path pathToFile;
         while (true) {
-            String input = view.requestPath(message);
+            String input = view.requestPath("Введите путь к исходящему файлу или директории: ");
             pathToFile = input.isEmpty() ? pb.getDefaultPath() : pb.getPath(input);
-            view.printMessage("✅ Установлен путь: " + pathToFile + "\n");
+            view.printMessage("✅ Установлен путь: " + pathToFile);
 
             if (Validator.isTxtFile(pathToFile)) {
                 return pathToFile;
@@ -111,17 +88,27 @@ public class ConsoleController {
         }
     }
 
-    private int getShiftKey(String message) {
+    private int requestShiftKey() {
         int result;
+        String message = "\uD83D\uDD11 Введите ключ сдвига: ";
         while (true) {
             try {
-                String input = view.requestUserInput("\uD83D\uDD11 " + message);
+                String input = view.requestUserInput(message);
                 result = Integer.parseInt(input);
-                return result;
+                if (result <= model.getAlphabetSize() - 1 && result != 0) {
+                    view.printMessage("✅ Ваш ключ: " + result);
+                    return result;
+                }
+                view.printMessage("\uD83D\uDD11 Введите ключ в диапазоне от 1 до " + (model.getAlphabetSize() - 1));
             } catch (NumberFormatException e) {
-                view.printError("Необходимо ввести целое число!");
+                view.printError("Необходимо ввести целое число!\n");
                 message = "Повторите ввод: ";
             }
         }
+    }
+
+    private void printIntro() {
+        view.printMessage("***** Шифр Цезаря (Консольный режим) *****");
+        view.showMenu();
     }
 }
