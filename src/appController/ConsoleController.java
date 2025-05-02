@@ -1,6 +1,6 @@
 package appController;
 
-import actions.Actions;
+import model.actions.Actions;
 import appView.View;
 import model.CaesarCipherModel;
 import model.dto.CipherRequest;
@@ -29,6 +29,7 @@ public class ConsoleController {
                 requestPathToOutput(),
                 requestShiftKey()
         );
+
     }
 
     private String requestAction() {
@@ -109,6 +110,7 @@ public class ConsoleController {
 
     private void printIntro() {
         view.printMessage("***** Шифр Цезаря (Консольный режим) *****");
-        view.showMenu();
+        Actions[] actions = Actions.values();
+        view.showMenu(actions);
     }
 }
