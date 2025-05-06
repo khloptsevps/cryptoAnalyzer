@@ -40,6 +40,9 @@ public class ConsoleController {
             try {
                 String input = view.requestUserInput(message);
                 result = actions[Integer.parseInt(input) - 1].name().toLowerCase();
+                if (result.equalsIgnoreCase("exit")) {
+                    applicationExit();
+                }
                 return result;
             } catch (NumberFormatException e) {
                 view.printError("Необходимо ввести целое число!");
@@ -112,5 +115,10 @@ public class ConsoleController {
         view.printMessage("***** Шифр Цезаря (Консольный режим) *****");
         Actions[] actions = Actions.values();
         view.showMenu(actions);
+    }
+
+    private void applicationExit() {
+            view.printMessage("\uD83D\uDC4B Завершение работы приложения...");
+            System.exit(0);
     }
 }
