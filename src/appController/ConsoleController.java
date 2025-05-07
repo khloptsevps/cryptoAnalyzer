@@ -29,21 +29,20 @@ public class ConsoleController {
                 requestPathToOutput(),
                 requestShiftKey()
         );
-
     }
 
     private String requestAction() {
         String message = "Выберите действие: ";
-        String result;
+        String actionName;
         Actions[] actions = Actions.values();
         while (true) {
             try {
                 String input = view.requestUserInput(message);
-                result = actions[Integer.parseInt(input) - 1].name().toLowerCase();
-                if (result.equalsIgnoreCase("exit")) {
-                    applicationExit();
+                actionName = actions[Integer.parseInt(input) - 1].name();
+                if (actionName.equalsIgnoreCase("exit")) {
+                    applicationExit(actionName);
                 }
-                return result;
+                return actionName;
             } catch (NumberFormatException e) {
                 view.printError("Необходимо ввести целое число!");
                 message = "\uD83D\uDD22 Повторите ввод: ";
@@ -117,8 +116,10 @@ public class ConsoleController {
         view.showMenu(actions);
     }
 
-    private void applicationExit() {
-            view.printMessage("\uD83D\uDC4B Завершение работы приложения...");
-            System.exit(0);
+    private void applicationExit(String actionName) {
+        view.printMessage("\uD83D\uDC4B Завершение работы приложения по запросу пользователя...");
+        Actions.getActionByName(actionName).execute(
+                new CipherRequest(null, null, null, 0)
+        );
     }
 }
