@@ -1,5 +1,7 @@
 package model.actions;
 
+import model.dto.CipherRequest;
+
 public interface Action {
-    void execute();
+    void execute(CipherRequest request);
 }
