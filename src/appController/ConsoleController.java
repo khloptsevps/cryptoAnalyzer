@@ -1,9 +1,10 @@
 package appController;
 
+import model.actions.Action;
 import model.actions.Actions;
 import appView.View;
 import model.CaesarCipherModel;
-import model.dto.CipherRequest;
+import dto.CipherRequest;
 import util.PathBuilder;
 import util.Validator;
 
@@ -11,11 +12,11 @@ import java.nio.file.Path;
 
 public class ConsoleController {
     private final View view;
-    private final CaesarCipherModel model;
+    private final CaesarCipherModel cipherModel;
 
-    public ConsoleController(View view, CaesarCipherModel model) {
+    public ConsoleController(View view, CaesarCipherModel cipherModel) {
         this.view = view;
-        this.model = model;
+        this.cipherModel = cipherModel;
     }
 
     PathBuilder pb = new PathBuilder();
@@ -29,20 +30,21 @@ public class ConsoleController {
                 requestPathToOutput(),
                 requestShiftKey()
         );
+
     }
 
-    private String requestAction() {
+    private Action requestAction() {
         String message = "Выберите действие: ";
-        String actionName;
+        Actions action;
         Actions[] actions = Actions.values();
         while (true) {
             try {
                 String input = view.requestUserInput(message);
-                actionName = actions[Integer.parseInt(input) - 1].name();
-                if (actionName.equalsIgnoreCase("exit")) {
-                    applicationExit(actionName);
+                action = actions[Integer.parseInt(input) - 1];
+                if (action.name().equalsIgnoreCase("exit")) {
+                    applicationExit(action.name());
                 }
-                return actionName;
+                return Actions.getActionByName(action.name());
             } catch (NumberFormatException e) {
                 view.printError("Необходимо ввести целое число!");
                 message = "\uD83D\uDD22 Повторите ввод: ";
@@ -98,11 +100,11 @@ public class ConsoleController {
             try {
                 String input = view.requestUserInput(message);
                 result = Integer.parseInt(input);
-                if (result <= model.getAlphabetSize() - 1 && result != 0) {
+                if (result <= cipherModel.getAlphabetSize() - 1 && result != 0) {
                     view.printMessage("✅ Ваш ключ: " + result);
                     return result;
                 }
-                view.printMessage("\uD83D\uDD11 Введите ключ в диапазоне от 1 до " + (model.getAlphabetSize() - 1));
+                view.printMessage("\uD83D\uDD11 Введите ключ в диапазоне от 1 до " + (cipherModel.getAlphabetSize() - 1));
             } catch (NumberFormatException e) {
                 view.printError("Необходимо ввести целое число!\n");
                 message = "Повторите ввод: ";
@@ -118,8 +120,6 @@ public class ConsoleController {
 
     private void applicationExit(String actionName) {
         view.printMessage("\uD83D\uDC4B Завершение работы приложения по запросу пользователя...");
-        Actions.getActionByName(actionName).execute(
-                new CipherRequest(null, null, null, 0)
-        );
+        Actions.getActionByName(actionName).execute(null, null);
     }
 }
