@@ -1,5 +1,6 @@
 package appController;
 
+import model.context.CipherContext;
 import model.actions.Action;
 import model.actions.Actions;
 import appView.View;
@@ -31,6 +32,13 @@ public class ConsoleController {
                 requestShiftKey()
         );
 
+        CipherContext context = new CipherContext(
+                cipherModel,
+                request.inputPath(),
+                request.outputPath(),
+                request.key());
+
+        request.action().execute(context);
     }
 
     private Action requestAction() {
@@ -120,6 +128,6 @@ public class ConsoleController {
 
     private void applicationExit(String actionName) {
         view.printMessage("\uD83D\uDC4B Завершение работы приложения по запросу пользователя...");
-        Actions.getActionByName(actionName).execute(null, null);
+        Actions.getActionByName(actionName).execute(null);
     }
 }
