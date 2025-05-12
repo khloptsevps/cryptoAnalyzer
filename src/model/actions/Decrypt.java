@@ -1,11 +1,10 @@
 package model.actions;
 
-import model.alphabet.Alphabet;
-import dto.CipherRequest;
+import model.context.CipherContext;
 
 public class Decrypt implements Action{
     @Override
-    public void execute(CipherRequest request, Alphabet alphabet) {
+    public void execute(CipherContext context) {
         System.out.println("Расшифровываем...");
     }
 }

@@ -1,8 +1,8 @@
 package model.actions;
 
-import model.alphabet.Alphabet;
-import dto.CipherRequest;
+
+import model.context.CipherContext;
 
 public interface Action {
-    void execute(CipherRequest request, Alphabet alphabet);
+    void execute(CipherContext context);
 }
