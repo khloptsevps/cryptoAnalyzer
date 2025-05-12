@@ -5,6 +5,7 @@ import model.CaesarCipherModel;
 import java.nio.file.Path;
 
 public class CipherContext {
+    final int CHUNK_SIZE = 50;
     final CaesarCipherModel cipherModel;
     final Path inputPath;
     final Path outputPath;
@@ -31,5 +32,9 @@ public class CipherContext {
 
     public int getShiftKey() {
         return shiftKey;
+    }
+
+    public int getChunkSize() {
+        return CHUNK_SIZE;
     }
 }
