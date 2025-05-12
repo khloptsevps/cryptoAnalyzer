@@ -11,11 +11,10 @@ public class Encrypt implements Action {
     public void execute(CipherContext context) {
         CaesarCipherModel cipherModel = context.getCipherModel();
         Alphabet alphabet = cipherModel.getAlphabet();
-
         try {
             cipherModel.openStreams(context.getInputPath());
-            char[] currentChars = cipherModel.readChunk(context.getChunkSize());
-            do {
+            char[] currentChars;
+            while ((currentChars = cipherModel.readChunk(context.getChunkSize())) != null) {
                 char[] encrypted = new char[currentChars.length];
                 for (int i = 0; i < currentChars.length; i++) {
                     char currentChar = currentChars[i];
@@ -23,18 +22,12 @@ public class Encrypt implements Action {
                     char newChar = alphabet.shift(currentChar, context.getShiftKey());
                     encrypted[i] = isUpperCase ? Character.toUpperCase(newChar) : newChar;
                 }
-
-                currentChars = cipherModel.readChunk(context.getChunkSize());
-            } while (currentChars != null);
+            }
 
             cipherModel.closeStreams();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-
-
     }
 }
 
