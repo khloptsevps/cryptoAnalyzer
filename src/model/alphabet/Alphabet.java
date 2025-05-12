@@ -5,47 +5,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Класс представляет алфавит.
- * Предоставляет набор методов для работы с алфавитом.
- */
 public class Alphabet {
     private final Map<Character, Integer> ALPHABET_MAP = new HashMap<>();
     private final List<Character> ALPHABET_LIST = new ArrayList<>();
 
     public Alphabet(String alphabet) {
         for (int i = 0; i < alphabet.length(); i++) {
-            char digit = alphabet.charAt(i);
-            ALPHABET_MAP.put(digit, i);
-            ALPHABET_LIST.add(digit);
+            char ch = alphabet.charAt(i);
+            ALPHABET_MAP.put(ch, i);
+            ALPHABET_LIST.add(ch);
         }
     }
 
-    /**
-     * Функция вычисляет размер алфавита.
-     *
-     * @return размер алфавита
-     */
     public int getSize() {
         return ALPHABET_LIST.size();
     }
 
-    /**
-     * Функция возвращает индекс переданного символа.
-     * Если символа нет в алфавите, вернет -1
-     * @return index or -1
-     */
-    public int getIndexFromChar(char digit) {
-        return ALPHABET_MAP.getOrDefault(digit, -1);
-    }
+    public char shift(char ch, int shiftKey) {
+        int currentIndex = ALPHABET_MAP.getOrDefault(Character.toLowerCase(ch), -1);
+        if (currentIndex < 0) {
+            return ch;
+        }
 
-    /**
-     * Функция возвращает символ по переданному индексу.
-     *
-     * @return char
-     *
-     */
-    public char getCharFromIndex(int index) {
-        return ALPHABET_LIST.get(index);
+        int newIndex = (currentIndex + shiftKey) % getSize();
+
+        if (newIndex < 0) {
+            newIndex += getSize();
+        }
+
+        return ALPHABET_LIST.get(newIndex);
     }
 }
