@@ -121,7 +121,7 @@ public class ConsoleController {
             try {
                 String input = view.requestUserInput(message);
                 result = Integer.parseInt(input);
-                if (result <= cipherModel.getAlphabetSize() - 1 && result != 0) {
+                if (result <= cipherModel.getAlphabetSize() - 1 && result >= 0) {
                     view.printMessage("✅ Ваш ключ: " + result);
                     return result;
                 }
