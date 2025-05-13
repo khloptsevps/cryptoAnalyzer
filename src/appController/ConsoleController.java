@@ -1,10 +1,14 @@
 package appController;
 
+import model.context.CipherContext;
 import model.actions.Action;
 import model.actions.Actions;
 import appView.View;
 import model.CaesarCipherModel;
 import dto.CipherRequest;
+import model.exceptions.CannotCreateFileException;
+import model.exceptions.CannotReadFileException;
+import model.exceptions.CannotWriteFileException;
 import util.PathBuilder;
 import util.Validator;
 
@@ -31,6 +35,22 @@ public class ConsoleController {
                 requestShiftKey()
         );
 
+        CipherContext context = new CipherContext(
+                cipherModel,
+                request.inputPath(),
+                request.outputPath(),
+                request.key()
+        );
+
+        try {
+            request.action().execute(context);
+        } catch (CannotCreateFileException | CannotReadFileException | CannotWriteFileException e) {
+            view.printError(e.getMessage());
+            System.exit(1);
+        } catch (RuntimeException e) {
+            view.printError(e.getMessage());
+            System.exit(2);
+        }
     }
 
     private Action requestAction() {
@@ -120,6 +140,6 @@ public class ConsoleController {
 
     private void applicationExit(String actionName) {
         view.printMessage("\uD83D\uDC4B Завершение работы приложения по запросу пользователя...");
-        Actions.getActionByName(actionName).execute(null, null);
+        Actions.getActionByName(actionName).execute(null);
     }
 }

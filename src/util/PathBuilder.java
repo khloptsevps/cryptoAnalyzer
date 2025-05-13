@@ -22,11 +22,7 @@ public class PathBuilder {
     private Path buildPath(String path) {
         Path currentPath = Paths.get(path);
         if (!currentPath.isAbsolute()) {
-            if (currentPath.getParent() == null) {
-                currentPath = Paths.get(DEFAULT_PATH, DEFAULT_DIR, path);
-            } else {
-                currentPath = Paths.get(DEFAULT_PATH, path);
-            }
+            currentPath = Paths.get(DEFAULT_PATH, DEFAULT_DIR, path);
         }
         return currentPath.normalize();
     }
