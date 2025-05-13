@@ -44,6 +44,7 @@ public class ConsoleController {
 
         try {
             request.action().execute(context);
+            view.printMessage(request.action().successMessage());
         } catch (CannotCreateFileException | CannotReadFileException | CannotWriteFileException e) {
             view.printError(e.getMessage());
             System.exit(1);
