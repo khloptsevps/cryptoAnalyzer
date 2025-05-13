@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class PathBuilder {
-    private final String DEFAULT_PATH = System.getProperty("user.dir");
+    private final Path DEFAULT_PATH = Paths.get(System.getProperty("user.dir"));
     private final String DEFAULT_DIR = "test";
 
     public Path getPath(String path) {
@@ -12,17 +12,22 @@ public class PathBuilder {
     }
 
     public Path getDefaultPath() {
-        return Paths.get(DEFAULT_PATH, DEFAULT_DIR);
+        return DEFAULT_PATH.resolve(DEFAULT_DIR);
     }
 
     public Path getDefaultPath(String fileName) {
-        return Paths.get(DEFAULT_PATH, DEFAULT_DIR, fileName);
+        return DEFAULT_PATH.resolve(DEFAULT_DIR, fileName);
     }
 
     private Path buildPath(String path) {
         Path currentPath = Paths.get(path);
+
         if (!currentPath.isAbsolute()) {
-            currentPath = Paths.get(DEFAULT_PATH, DEFAULT_DIR, path);
+            if (currentPath.getParent() != null) {
+                currentPath = DEFAULT_PATH.resolve(currentPath);
+            } else {
+                currentPath = DEFAULT_PATH.resolve(DEFAULT_DIR, currentPath.toString());
+            }
         }
         return currentPath.normalize();
     }
