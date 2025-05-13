@@ -11,14 +11,12 @@ public class FileHandler {
     public static Path create(Path path, String directory, String name) throws IOException {
         if (Validator.isProbablyDirectory(path)) {
             path = path.resolve(directory, name);
-            FileHandler.create(path);
-            return path;
         } else {
             String fileName = path.getFileName().toString();
-            path = path.getParent().resolve(directory, fileName);
-            FileHandler.create(path);
-            return path;
+            path = path.getParent().resolve(fileName);
         }
+        FileHandler.create(path);
+        return path;
     }
 
     private static void create(Path path) throws IOException {
