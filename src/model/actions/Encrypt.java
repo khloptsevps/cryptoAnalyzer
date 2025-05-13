@@ -1,32 +1,48 @@
 package model.actions;
 
 import model.CaesarCipherModel;
-import model.alphabet.Alphabet;
 import model.context.CipherContext;
+import model.exceptions.ExceptionHandler;
+import model.fileHandler.FileHandler;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
 
 
 public class Encrypt implements Action {
     @Override
     public void execute(CipherContext context) {
+        String defaultDir = "encrypt/";
+        String defaultName = "encrypt.txt";
         CaesarCipherModel cipherModel = context.getCipherModel();
-        Alphabet alphabet = cipherModel.getAlphabet();
-        try {
-            cipherModel.openStreams(context.getInputPath());
-            char[] currentChars;
-            while ((currentChars = cipherModel.readChunk(context.getChunkSize())) != null) {
-                char[] encrypted = new char[currentChars.length];
-                for (int i = 0; i < currentChars.length; i++) {
-                    char currentChar = currentChars[i];
-                    boolean isUpperCase = Character.isUpperCase(currentChar);
-                    char newChar = alphabet.shift(currentChar, context.getShiftKey());
-                    encrypted[i] = isUpperCase ? Character.toUpperCase(newChar) : newChar;
-                }
-            }
+        int chunkSize = context.getChunkSize();
+        int shiftKey = context.getShiftKey();
 
-            cipherModel.closeStreams();
+        Path input = context.getInputPath();
+        Path output = context.getOutputPath();
+
+        try {
+            output = FileHandler.create(output, defaultDir, defaultName);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            ExceptionHandler.generateCreationException(e, output);
+        }
+
+        try (
+                BufferedReader reader = Files.newBufferedReader(input);
+                BufferedWriter writer = Files.newBufferedWriter(output)
+        ) {
+            char[] buffer = new char[chunkSize];
+            while (reader.ready()) {
+                int read = reader.read(buffer);
+                char[] readChars = read < chunkSize ? Arrays.copyOf(buffer, read) : buffer;
+                char[] encrypted = cipherModel.encrypt(readChars, shiftKey);
+                writer.write(encrypted);
+            }
+        } catch (IOException e) {
+            ExceptionHandler.generateException(e, input, output);
         }
     }
 }
