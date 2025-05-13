@@ -6,6 +6,7 @@ import model.actions.Actions;
 import appView.View;
 import model.CaesarCipherModel;
 import dto.CipherRequest;
+import model.exceptions.CannotCreateFileException;
 import util.PathBuilder;
 import util.Validator;
 
@@ -36,9 +37,15 @@ public class ConsoleController {
                 cipherModel,
                 request.inputPath(),
                 request.outputPath(),
-                request.key());
+                request.key()
+        );
 
-        request.action().execute(context);
+        try {
+            request.action().execute(context);
+        } catch (CannotCreateFileException e) {
+            view.printError(e.getMessage());
+            System.exit(1);
+        }
     }
 
     private Action requestAction() {
