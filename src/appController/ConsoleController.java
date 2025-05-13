@@ -7,6 +7,8 @@ import appView.View;
 import model.CaesarCipherModel;
 import dto.CipherRequest;
 import model.exceptions.CannotCreateFileException;
+import model.exceptions.CannotReadFileException;
+import model.exceptions.CannotWriteFileException;
 import util.PathBuilder;
 import util.Validator;
 
@@ -42,9 +44,12 @@ public class ConsoleController {
 
         try {
             request.action().execute(context);
-        } catch (CannotCreateFileException e) {
+        } catch (CannotCreateFileException | CannotReadFileException | CannotWriteFileException e) {
             view.printError(e.getMessage());
             System.exit(1);
+        } catch (RuntimeException e) {
+            view.printError(e.getMessage());
+            System.exit(2);
         }
     }
 
