@@ -19,7 +19,7 @@ public class FileHandler {
         return path;
     }
 
-    private static void create(Path path) throws IOException {
+    public static void create(Path path) throws IOException {
         Files.createDirectories(path.getParent());
         if (Files.exists(path)) {
             Files.delete(path);

@@ -1,11 +1,11 @@
 package appController;
 
+import model.actions.BruteForce;
 import model.context.CipherContext;
 import model.actions.Action;
 import model.actions.Actions;
 import appView.View;
 import model.CaesarCipherModel;
-import dto.CipherRequest;
 import model.exceptions.CannotCreateFileException;
 import model.exceptions.CannotReadFileException;
 import model.exceptions.CannotWriteFileException;
@@ -24,27 +24,28 @@ public class ConsoleController {
     }
 
     PathBuilder pb = new PathBuilder();
+    CipherContext context = new CipherContext();
 
 
     public void run() {
         printIntro();
-        CipherRequest request = new CipherRequest(
-                requestAction(),
-                requestPathToInputFile(),
-                requestPathToOutput(),
-                requestShiftKey()
-        );
 
-        CipherContext context = new CipherContext(
-                cipherModel,
-                request.inputPath(),
-                request.outputPath(),
-                request.key()
-        );
+        Action action = requestAction();
+
+        context.setCipherModel(cipherModel);
+        context.setInputPath(requestPathToInputFile());
+        context.setOutputPath(requestPathToOutput());
+
+        if (action instanceof BruteForce) {
+            context.setShiftKey(1);
+        } else {
+            context.setShiftKey(requestShiftKey());
+        }
+
 
         try {
-            request.action().execute(context);
-            view.printMessage(request.action().successMessage());
+            action.execute(context);
+            view.printMessage(action.successMessage());
         } catch (CannotCreateFileException | CannotReadFileException | CannotWriteFileException e) {
             view.printError(e.getMessage());
             System.exit(1);
@@ -80,7 +81,7 @@ public class ConsoleController {
         Path pathToFile;
         while (true) {
             String input = view.requestPath("Введите путь ко входящему файлу: ");
-            pathToFile = input.isEmpty() ? pb.getDefaultPath("input.txt") : pb.getPath(input);
+            pathToFile = input.isEmpty() ? pb.getDefaultPath("example.txt") : pb.getPath(input);
 
             if (Validator.isValidAndReadableFile(pathToFile)) {
                 if (Validator.isTxtFile(pathToFile)) {
@@ -116,6 +117,7 @@ public class ConsoleController {
 
     private int requestShiftKey() {
         int result;
+
         String message = "\uD83D\uDD11 Введите ключ сдвига: ";
         while (true) {
             try {

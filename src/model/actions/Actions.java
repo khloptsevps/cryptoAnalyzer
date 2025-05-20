@@ -3,6 +3,7 @@ package model.actions;
 public enum Actions {
     ENCRYPT("\uD83D\uDD10 Зашифровать", new Encrypt()),
     DECRYPT("\uD83D\uDD13 Расшифровать", new Decrypt()),
+    BRUTEFORCE("\uD83D\uDD75️ Брутфорс (подобрать ключ)", new BruteForce()),
     EXIT("\uD83D\uDC4B Завершить работу приложения", new Exit());
 
     private final String label;
