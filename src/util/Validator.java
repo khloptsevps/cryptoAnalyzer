@@ -11,4 +11,8 @@ public class Validator {
     public static boolean isTxtFile(Path path) {
         return path.getFileName().toString().toLowerCase().endsWith(".txt");
     }
+
+    public static boolean isProbablyDirectory(Path path) {
+        return !path.getFileName().toString().contains(".");
+    }
 }
