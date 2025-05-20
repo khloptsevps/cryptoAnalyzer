@@ -5,11 +5,18 @@ import model.CaesarCipherModel;
 import java.nio.file.Path;
 
 public class CipherContext {
-    final int CHUNK_SIZE = 50;
-    final CaesarCipherModel cipherModel;
-    final Path inputPath;
-    final Path outputPath;
-    final int shiftKey;
+    private final int CHUNK_SIZE = 8192;
+    private CaesarCipherModel cipherModel;
+    private Path inputPath;
+    private Path outputPath;
+    private int shiftKey;
+
+    public CipherContext() {
+        this.cipherModel = null;
+        this.inputPath = null;
+        this.outputPath = null;
+        this.shiftKey = -1;
+    }
 
     public CipherContext(CaesarCipherModel cipherModel, Path inputPath, Path outputPath, int shiftKey) {
         this.cipherModel = cipherModel;
@@ -36,5 +43,21 @@ public class CipherContext {
 
     public int getChunkSize() {
         return CHUNK_SIZE;
+    }
+
+    public void setCipherModel(CaesarCipherModel model) {
+        this.cipherModel = model;
+    }
+
+    public void setInputPath(Path path) {
+        this.inputPath = path;
+    }
+
+    public void setOutputPath(Path path) {
+        this.outputPath = path;
+    }
+
+    public void setShiftKey(int key) {
+        this.shiftKey = key;
     }
 }
