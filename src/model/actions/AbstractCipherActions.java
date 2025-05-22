@@ -13,9 +13,9 @@ import java.nio.file.Path;
 import java.util.Arrays;
 
 abstract class AbstractCipherActions implements Action {
-    protected abstract String getDefaultDir();
-    protected abstract String getDefaultFilename();
-    protected abstract char[] shift(CaesarCipherModel model, char[] chars, int shiftKey);
+    abstract String getDefaultDir();
+    abstract String getDefaultFilename();
+    abstract char[] shift(CaesarCipherModel model, char[] chars, int shiftKey);
     private Path output;
 
     @Override
@@ -50,7 +50,7 @@ abstract class AbstractCipherActions implements Action {
         }
     }
 
-    protected String getOutputPath() {
+    String getOutputPath() {
         return output.toString();
     }
 }

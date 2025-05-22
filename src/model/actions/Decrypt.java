@@ -9,17 +9,17 @@ public class Decrypt extends AbstractCipherActions {
     }
 
     @Override
-    protected String getDefaultDir() {
+    String getDefaultDir() {
         return "decrypt/";
     }
 
     @Override
-    protected String getDefaultFilename() {
+    String getDefaultFilename() {
         return "decrypt.txt";
     }
 
     @Override
-    protected char[] shift(CaesarCipherModel model, char[] chars, int shiftKey) {
+    char[] shift(CaesarCipherModel model, char[] chars, int shiftKey) {
         return model.decrypt(chars, shiftKey);
     }
 }

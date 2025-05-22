@@ -9,17 +9,17 @@ public class Encrypt extends AbstractCipherActions {
     }
 
     @Override
-    protected String getDefaultDir() {
+    String getDefaultDir() {
         return "encrypt/";
     }
 
     @Override
-    protected String getDefaultFilename() {
+    String getDefaultFilename() {
         return "encrypt.txt";
     }
 
     @Override
-    protected char[] shift(CaesarCipherModel model, char[] chars, int shiftKey) {
+    char[] shift(CaesarCipherModel model, char[] chars, int shiftKey) {
         return model.encrypt(chars, shiftKey);
     }
 }
