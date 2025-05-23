@@ -23,7 +23,7 @@ public class ConsoleController {
         this.cipherModel = cipherModel;
     }
 
-    PathBuilder pb = new PathBuilder();
+    PathBuilder pb = new PathBuilder("files");
     CipherContext context = new CipherContext();
 
 

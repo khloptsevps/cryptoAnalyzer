@@ -5,7 +5,15 @@ import java.nio.file.Paths;
 
 public class PathBuilder {
     private final Path DEFAULT_PATH = Paths.get(System.getProperty("user.dir"));
-    private final String DEFAULT_DIR = "example";
+    private final String DEFAULT_DIR;
+
+    public PathBuilder() {
+        DEFAULT_DIR = "example";
+    }
+
+    public PathBuilder(String defaultDirName) {
+        DEFAULT_DIR = defaultDirName;
+    }
 
     public Path getPath(String path) {
         return buildPath(path);
