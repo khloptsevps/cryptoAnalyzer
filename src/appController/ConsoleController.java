@@ -69,10 +69,10 @@ public class ConsoleController {
                 return Actions.getActionByName(action.name());
             } catch (NumberFormatException e) {
                 view.printError("Необходимо ввести целое число!");
-                message = "\uD83D\uDD22 Повторите ввод: ";
+                message = "Повторите ввод: ";
             } catch (ArrayIndexOutOfBoundsException e) {
                 view.printError("Такого действия нет!");
-                message = "\uD83D\uDD22 Повторите ввод: ";
+                message = "Повторите ввод: ";
             }
         }
     }
