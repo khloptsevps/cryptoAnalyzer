@@ -1,4 +1,4 @@
-import appController.ConsoleController;
+import appController.Controller;
 import appView.ConsoleView;
 import appView.View;
 import model.CaesarCipherModel;
@@ -8,7 +8,7 @@ public class CryptoAnalyzer {
 
         View ui = new ConsoleView();
         CaesarCipherModel model = new CaesarCipherModel();
-        ConsoleController controller = new ConsoleController(ui, model);
+        Controller controller = new Controller(ui, model);
 
         controller.run();
 

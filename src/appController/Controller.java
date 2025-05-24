@@ -14,11 +14,11 @@ import util.Validator;
 
 import java.nio.file.Path;
 
-public class ConsoleController {
+public class Controller {
     private final View view;
     private final CaesarCipherModel cipherModel;
 
-    public ConsoleController(View view, CaesarCipherModel cipherModel) {
+    public Controller(View view, CaesarCipherModel cipherModel) {
         this.view = view;
         this.cipherModel = cipherModel;
     }
