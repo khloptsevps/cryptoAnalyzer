@@ -136,7 +136,7 @@ public class Controller {
     }
 
     private void printIntro() {
-        view.printMessage("***** Шифр Цезаря (Консольный режим) *****");
+        view.printMessage("***** Шифратор Цезаря *****");
         Actions[] actions = Actions.values();
         view.showMenu(actions);
     }
