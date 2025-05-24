@@ -27,6 +27,9 @@ public class FileHandler {
         } else {
             Files.createFile(path);
         }
+    }
 
+    public static void removeFile(Path path) throws IOException {
+        Files.delete(path);
     }
 }
