@@ -60,4 +60,10 @@ public class CipherContext {
     public void setShiftKey(int key) {
         this.shiftKey = key;
     }
+
+    public void reset() {
+        this.inputPath = null;
+        this.outputPath = null;
+        this.shiftKey = -1;
+    }
 }
