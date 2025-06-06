@@ -116,7 +116,7 @@ public class SwingView {
     }
 
     public String showInputDialog(String message, String title) {
-        return JOptionPane.showInputDialog(frame, message, title, JOptionPane.PLAIN_MESSAGE);
+        return JOptionPane.showInputDialog(frame, message, title, JOptionPane.QUESTION_MESSAGE);
     }
 
     public void showErrorDialog(String message) {
@@ -124,7 +124,7 @@ public class SwingView {
     }
 
     public void showMessageDialog(String message) {
-        JOptionPane.showMessageDialog(frame, message, "Успешное выполнение операции!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(frame, message, "Успешное выполнение операции!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public JFrame getFrame() {
