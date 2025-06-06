@@ -53,9 +53,7 @@ public class SwingController {
     private void initActionButtonsListeners() {
         List<JButton> buttons = view.getActionButtons();
         for (JButton button : buttons) {
-            button.addActionListener((_) -> {
-                actionHandler(button);
-            });
+            button.addActionListener((_) -> actionHandler(button));
         }
     }
 
@@ -65,20 +63,14 @@ public class SwingController {
         JButton input = ioButtons.get("input");
         JButton output = ioButtons.get("output");
 
-        input.addActionListener((_) -> {
-            inputButtonHandler();
-        });
+        input.addActionListener((_) -> inputButtonHandler());
 
-        output.addActionListener((_) -> {
-            outputButtonHandler();
-        });
+        output.addActionListener((_) -> outputButtonHandler());
     }
 
     private void initExecuteButton() {
         JButton executeButton = view.getExecuteButton();
-        executeButton.addActionListener((_) -> {
-            executeButtonHandler();
-        });
+        executeButton.addActionListener((_) -> executeButtonHandler());
     }
 
     private int requestShiftKey() {

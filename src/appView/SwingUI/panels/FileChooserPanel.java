@@ -18,9 +18,7 @@ public class FileChooserPanel extends JPanel implements Panel {
         jPanel.setBorder(BorderFactory.createTitledBorder("Выберите файлы"));
         jPanel.setLayout(new GridLayout(2, 1, 10, 20));
 
-        IO_BUTTONS.forEach( (_, button) -> {
-            jPanel.add(button);
-        });
+        IO_BUTTONS.forEach( (_, button) -> jPanel.add(button));
     }
 
     @Override
