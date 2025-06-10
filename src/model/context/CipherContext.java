@@ -66,4 +66,11 @@ public class CipherContext {
         this.outputPath = null;
         this.shiftKey = -1;
     }
+
+    public boolean isValid() {
+        return getShiftKey() != -1
+                && getInputPath() != null
+                && getOutputPath() != null
+                && (!getInputPath().equals(getOutputPath()));
+    }
 }
