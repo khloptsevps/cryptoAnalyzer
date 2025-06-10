@@ -46,13 +46,13 @@
 Программа ожидает, что все необходимые файлы будут находиться в подкаталоге files, расположенном **рядом с cryptoAnalyzer.jar.**  
 - #### Windows:  
   - Если **cryptoAnalyzer.jar** расположен в: C:\app\cryptoAnalyzer\, то файлы должны находиться в: C:\app\cryptoAnalyzer\files
-  - Чтобы путь ко входящему файлу корректно работал нужно чтобы по пути C:\app\cryptoAnalyzer\files существовал файл example.txt
+  - Чтобы путь ко входящему файлу по-умолчанию корректно работал нужно чтобы по пути C:\app\cryptoAnalyzer\files существовал файл example.txt
   - если указать имя файла, например: **input.txt**, то поиск файла будет в каталоге **files**
   - путь к файлу можно указать в формате: **C:\full\path\to\file.txt**
 
 - #### MacOS/Linux:
    - Если **cryptoAnalyzer.jar** расположен в: /Users/user/Desktop/app/cryptoAnalyzer/, то файлы должны находиться в: /Users/user/Desktop/app/cryptoAnalyzer/files
-   - Чтобы путь ко входящему файлу корректно работал нужно чтобы по пути /Users/user/Desktop/app/cryptoAnalyzer/files существовал файл example.txt
+   - Чтобы путь ко входящему файлу по-умолчанию корректно работал нужно чтобы по пути /Users/user/Desktop/app/cryptoAnalyzer/files существовал файл example.txt
    - если указать имя файла, например: **input.txt**, то поиск файла будет в каталоге **files**
    - путь к файлу можно указать в формате: **/full/path/to/file.txt**
 
