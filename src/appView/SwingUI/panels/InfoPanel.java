@@ -12,6 +12,7 @@ public class InfoPanel extends JPanel {
     private JLabel inputFilePath;
     private JLabel outputFilePath;
     private JLabel shiftKey;
+    private JLabel state;
     private CipherContext context;
 
     public InfoPanel(CipherContext context) {
@@ -21,16 +22,18 @@ public class InfoPanel extends JPanel {
 
     private void init() {
         TitledBorder titledBorder = BorderFactory.createTitledBorder("Информация");
-        jPanel.setLayout(new GridLayout(3, 1, 5, 5));
+        jPanel.setLayout(new GridLayout(4, 1, 5, 5));
         jPanel.setBorder(titledBorder);
 
         inputFilePath = new JLabel("Исходный файл: [не выбран]");
         outputFilePath = new JLabel("Файл вывода или директория: [не задано]");
         shiftKey = new JLabel("Ключ: [не задан]");
+        state = new JLabel(genStateString("red", "Не готов!"));
 
         jPanel.add(inputFilePath);
         jPanel.add(outputFilePath);
         jPanel.add(shiftKey);
+        jPanel.add(state);
 
     }
 
@@ -50,5 +53,20 @@ public class InfoPanel extends JPanel {
         Path outputPath = context.getOutputPath();
         String outputPathInfo = outputPath == null ? "[не задан]" : outputPath.toString();
         outputFilePath.setText(String.format("Файл вывода или директория: %s", outputPathInfo));
+
+        updateStateInfo();
+    }
+
+    private void updateStateInfo() {
+        if (context.isValid()) {
+            state.setText(genStateString("green", "Готов!"));
+            return;
+        }
+        state.setText(genStateString("red", "Не готов!"));
+    }
+
+
+    private String genStateString(String color, String text) {
+       return String.format("<html><span style='color:black;'>Статус: </span><span style='color:%s;'>%s</span></html>", color, text);
     }
 }
