@@ -22,7 +22,4 @@ public class Validator {
         return path1.equals(path2);
     }
 
-    public static boolean validateContext(CipherContext context) {
-        return context.getShiftKey() != -1 && context.getInputPath() != null && context.getOutputPath() != null;
-    }
 }
