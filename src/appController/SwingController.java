@@ -115,6 +115,7 @@ public class SwingController {
 
         if (action instanceof BruteForce) {
             context.setShiftKey(1);
+            view.updateInfo();
             view.updateExecuteState();
         }
 
@@ -129,28 +130,33 @@ public class SwingController {
 
         while (true) {
             int result = fileChooser.showOpenDialog(view.getFrame());
-            System.out.println(result);
+
             Path pathToFile;
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
                 String path = selectedFile.getAbsolutePath();
                 pathToFile = pb.getPath(path);
 
-                if (Validator.isValidAndReadableFile(pathToFile)) {
-                    if (Validator.isTxtFile(pathToFile)) {
-                        context.setInputPath(pathToFile);
-                        view.updateInfo();
-                        view.updateExecuteState();
-                        return;
-                    } else {
-                        view.showErrorDialog("Это не .txt файл.");
-                    }
-                } else {
-                    view.showErrorDialog("Файл не существует или его нельзя прочитать!");
+                if (!Validator.isTxtFile(pathToFile)) {
+                    view.showErrorDialog("Это не .txt файл.");
+                    continue;
                 }
-            } else {
-                return;
+
+                if (!Validator.isValidAndReadableFile(pathToFile)) {
+                    view.showErrorDialog("Файл не существует или его нельзя прочитать!");
+                    continue;
+                }
+
+                if (Validator.isSamePath(pathToFile, context.getOutputPath())) {
+                    view.showErrorDialog("Путь ко входящему и исходящему файлу должен быть разный!");
+                    continue;
+                }
+
+                context.setInputPath(pathToFile);
+                view.updateInfo();
+                view.updateExecuteState();
             }
+            return;
         }
     }
 
@@ -172,21 +178,21 @@ public class SwingController {
                     return;
                 }
 
-                if (Validator.isTxtFile(pathToFile)) {
-                    if (Validator.isSamePath(pathToFile, context.getInputPath())) {
-                        view.showErrorDialog("Путь ко входящему и исходящему файлу должен быть разный!");
-                        return;
-                    } else {
-                        context.setOutputPath(pathToFile);
-                        view.updateInfo();
-                        view.updateExecuteState();
-                    }
-                    return;
+                if (!Validator.isTxtFile(pathToFile)) {
+                    view.showErrorDialog("Исходящий файл должен быть .txt или директорией!");
+                    continue;
                 }
-                view.showErrorDialog("Исходящий файл должен быть .txt или директорией!");
-            } else {
-                return;
+
+                if (Validator.isSamePath(pathToFile, context.getInputPath())) {
+                    view.showErrorDialog("Путь ко входящему и исходящему файлу должен быть разный!");
+                    continue;
+                }
+
+                context.setOutputPath(pathToFile);
+                view.updateInfo();
+                view.updateExecuteState();
             }
+            return;
         }
     }
 
