@@ -153,7 +153,7 @@ public class SwingView {
     }
 
     public void updateExecuteState() {
-        executeButton.setEnabled(Validator.validateContext(context));
+        executeButton.setEnabled(context.isValid());
     }
 
     public void blockAllButtons() {
