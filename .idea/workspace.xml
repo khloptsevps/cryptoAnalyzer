@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="cryptoAnalyzer:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc62728a-33f9-4d1d-90de-3fc0e14e539b" name="Changes" comment="фикс информационных сообщений">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/cryptoAnalyzer_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cryptoAnalyzer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CryptoAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/CryptoAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appController/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appController/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appController/SwingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appController/SwingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/ConsoleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/IOButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/IOButtons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/SwingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/SwingView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/panels/ActionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/panels/ActionsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/panels/ExecutePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/panels/ExecutePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/panels/FileChooserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/panels/FileChooserPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/panels/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/panels/InfoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/SwingUI/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/SwingUI/panels/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appView/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/appView/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/CaesarCipherModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/CaesarCipherModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/KeyEvaluator/KeyEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/KeyEvaluator/KeyEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/AbstractCipherActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/AbstractCipherActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/Actions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/Actions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/BruteForce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/BruteForce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/Decrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/Decrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/Encrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/Encrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/actions/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/actions/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/alphabet/Alphabet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/alphabet/Alphabet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/alphabet/Alphabets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/alphabet/Alphabets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/context/CipherContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/context/CipherContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/exceptions/CannotCreateFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/exceptions/CannotCreateFileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/exceptions/CannotReadFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/exceptions/CannotReadFileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/exceptions/CannotWriteFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/exceptions/CannotWriteFileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/exceptions/ExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/exceptions/ExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/fileHandler/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/model/fileHandler/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/PathBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/util/PathBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/khloptsev/cryptoanalyzer/util/Validator.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main-swing" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;khloptsevps&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:khloptsevps/cryptoAnalyzer.git&quot;,
+    &quot;accountId&quot;: &quot;16a4d927-adea-491a-9e2b-e452dfa3c801&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="C:\tools\apache-maven-3.9.10" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2wIf6MHFDPPbrTJ2u7e45iYfKRM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App start with args.executor": "Run",
+    "Application.App start without args.executor": "Run",
+    "Application.App test with path to original file.executor": "Run",
+    "Application.CryptoAnalyzer.executor": "Run",
+    "Application.JAVAFX.executor": "Run",
+    "Application.Test input file without full path.executor": "Run",
+    "Application.Test with full args.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Maven.Maven-build.executor": "Run",
+    "Maven.cryptoAnalyzer [clean,package].executor": "Run",
+    "Maven.cryptoAnalyzer [java,-jar...].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/projects/cryptoAnalyzer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2980843",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.Maven-build">
+    <configuration name="App start with args" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.khloptsev.cryptoanalyzer.CryptoAnalyzer" />
+      <module name="cryptoAnalyzer" />
+      <option name="PROGRAM_PARAMETERS" value="-gui" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App start without args" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.khloptsev.cryptoanalyzer.CryptoAnalyzer" />
+      <module name="cryptoAnalyzer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Maven-build" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.App start without args" />
+      <item itemvalue="Application.App start with args" />
+      <item itemvalue="Maven.Maven-build" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc62728a-33f9-4d1d-90de-3fc0e14e539b" name="Changes" comment="" />
+      <created>1745733832010</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745733832010</updated>
+      <workItem from="1745733834649" duration="10098000" />
+      <workItem from="1745844270032" duration="885000" />
+      <workItem from="1745886726953" duration="28109000" />
+      <workItem from="1745981027092" duration="19458000" />
+      <workItem from="1746058219471" duration="2990000" />
+      <workItem from="1746061683995" duration="18270000" />
+      <workItem from="1746081458229" duration="655000" />
+      <workItem from="1746149345885" duration="11000" />
+      <workItem from="1746149699010" duration="17398000" />
+      <workItem from="1746510217868" duration="201000" />
+      <workItem from="1746585241734" duration="22447000" />
+      <workItem from="1746677115441" duration="1025000" />
+      <workItem from="1747019881650" duration="21366000" />
+      <workItem from="1747092020972" duration="27965000" />
+      <workItem from="1747551251528" duration="456000" />
+      <workItem from="1747637641905" duration="368000" />
+      <workItem from="1747701649531" duration="14579000" />
+      <workItem from="1747718277939" duration="514000" />
+      <workItem from="1747838439061" duration="44000" />
+      <workItem from="1747975729525" duration="6920000" />
+      <workItem from="1747985987819" duration="150000" />
+      <workItem from="1747986285786" duration="893000" />
+      <workItem from="1747987203466" duration="5061000" />
+      <workItem from="1747995616820" duration="1924000" />
+      <workItem from="1748061873996" duration="6374000" />
+      <workItem from="1748520963279" duration="4065000" />
+      <workItem from="1749001708847" duration="35000" />
+      <workItem from="1749013744754" duration="14000" />
+      <workItem from="1749179910906" duration="21658000" />
+      <workItem from="1749206243471" duration="15964000" />
+      <workItem from="1749222459626" duration="7154000" />
+      <workItem from="1749552130935" duration="583000" />
+      <workItem from="1749552736833" duration="41000" />
+      <workItem from="1749552797198" duration="259000" />
+      <workItem from="1749553076767" duration="57000" />
+      <workItem from="1749553141653" duration="236000" />
+      <workItem from="1749553390188" duration="3267000" />
+      <workItem from="1749556701417" duration="1751000" />
+      <workItem from="1749558483595" duration="70000" />
+      <workItem from="1749558560755" duration="262000" />
+      <workItem from="1749558830891" duration="3330000" />
+      <workItem from="1749632923431" duration="2749000" />
+    </task>
+    <task id="LOCAL-00076" summary="обработка исключения CannotCreateFileException">
+      <option name="closed" value="true" />
+      <created>1747098721682</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1747098721682</updated>
+    </task>
+    <task id="LOCAL-00077" summary="добавлен метод шифрования и расшифровки">
+      <option name="closed" value="true" />
+      <created>1747098745170</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1747098745170</updated>
+    </task>
+    <task id="LOCAL-00078" summary="обработка ошибок при запуске действия">
+      <option name="closed" value="true" />
+      <created>1747104395028</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1747104395028</updated>
+    </task>
+    <task id="LOCAL-00079" summary="реализовано шифрование с обработкой ошибок">
+      <option name="closed" value="true" />
+      <created>1747104506122</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1747104506122</updated>
+    </task>
+    <task id="LOCAL-00080" summary="добавлены обработчики ошибок">
+      <option name="closed" value="true" />
+      <created>1747104524388</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1747104524388</updated>
+    </task>
+    <task id="LOCAL-00081" summary="исправлены пути">
+      <option name="closed" value="true" />
+      <created>1747109118786</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1747109118786</updated>
+    </task>
+    <task id="LOCAL-00082" summary="реализована расшифровка по ключу">
+      <option name="closed" value="true" />
+      <created>1747109158826</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1747109158826</updated>
+    </task>
+    <task id="LOCAL-00083" summary="добавлен метод по умолчанию successMessage">
+      <option name="closed" value="true" />
+      <created>1747114020686</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1747114020686</updated>
+    </task>
+    <task id="LOCAL-00084" summary="вывод на экран сообщения об успешном выполнении">
+      <option name="closed" value="true" />
+      <created>1747114045969</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1747114045969</updated>
+    </task>
+    <task id="LOCAL-00085" summary="добавлен абс.класс чтобы не дулбировался код">
+      <option name="closed" value="true" />
+      <created>1747114077553</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1747114077553</updated>
+    </task>
+    <task id="LOCAL-00086" summary="удален дублирующийся код">
+      <option name="closed" value="true" />
+      <created>1747114099323</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1747114099323</updated>
+    </task>
+    <task id="LOCAL-00087" summary="исправлена ошибка построения путей">
+      <option name="closed" value="true" />
+      <created>1747117278656</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1747117278656</updated>
+    </task>
+    <task id="LOCAL-00088" summary="исправлена ошибка ввода отрицательного ключа">
+      <option name="closed" value="true" />
+      <created>1747117554693</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1747117554693</updated>
+    </task>
+    <task id="LOCAL-00089" summary="удален DTO нет необходимости">
+      <option name="closed" value="true" />
+      <created>1747713551678</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713551678</updated>
+    </task>
+    <task id="LOCAL-00090" summary="добавлен Bruteforce">
+      <option name="closed" value="true" />
+      <created>1747713633968</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713633968</updated>
+    </task>
+    <task id="LOCAL-00091" summary="из пунктуации удален …">
+      <option name="closed" value="true" />
+      <created>1747713668749</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713668749</updated>
+    </task>
+    <task id="LOCAL-00092" summary="в контекст добавил сеттеры. установлен размер чанка 8кб">
+      <option name="closed" value="true" />
+      <created>1747713698215</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713698215</updated>
+    </task>
+    <task id="LOCAL-00093" summary="перегруженный метод create объявил как public">
+      <option name="closed" value="true" />
+      <created>1747713775181</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713775181</updated>
+    </task>
+    <task id="LOCAL-00094" summary="директория по умолчанию изменена на example">
+      <option name="closed" value="true" />
+      <created>1747713824024</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713824024</updated>
+    </task>
+    <task id="LOCAL-00095" summary="добавлен файл и директория example">
+      <option name="closed" value="true" />
+      <created>1747713858457</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1747713858457</updated>
+    </task>
+    <task id="LOCAL-00096" summary="обновлена работа с контестом. добавлена работа с bruteforce">
+      <option name="closed" value="true" />
+      <created>1747714097243</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1747714097243</updated>
+    </task>
+    <task id="LOCAL-00097" summary="обновлено Readme">
+      <option name="closed" value="true" />
+      <created>1747716599211</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1747716599211</updated>
+    </task>
+    <task id="LOCAL-00098" summary="обновлено Readme">
+      <option name="closed" value="true" />
+      <created>1747716631867</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1747716631867</updated>
+    </task>
+    <task id="LOCAL-00099" summary="обновлено Readme">
+      <option name="closed" value="true" />
+      <created>1747716647068</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1747716647068</updated>
+    </task>
+    <task id="LOCAL-00100" summary="обновлен Readme">
+      <option name="closed" value="true" />
+      <created>1747716772726</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1747716772726</updated>
+    </task>
+    <task id="LOCAL-00101" summary="добавлены конструкторы в PathBuilder">
+      <option name="closed" value="true" />
+      <created>1747993710918</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1747993710918</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Добавлен раздел работы с файлами">
+      <option name="closed" value="true" />
+      <created>1747993922367</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1747993922367</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Исправлены заголовки разделов">
+      <option name="closed" value="true" />
+      <created>1747994093542</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1747994093542</updated>
+    </task>
+    <task id="LOCAL-00104" summary="переименован в Controller">
+      <option name="closed" value="true" />
+      <created>1748061939560</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1748061939560</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Класс для анализа ключа шифрования">
+      <option name="closed" value="true" />
+      <created>1748063771192</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1748063771192</updated>
+    </task>
+    <task id="LOCAL-00106" summary="добавлен метод removeFile">
+      <option name="closed" value="true" />
+      <created>1748063789021</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1748063789021</updated>
+    </task>
+    <task id="LOCAL-00107" summary="добавлен метод detectKey">
+      <option name="closed" value="true" />
+      <created>1748063870576</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1748063870576</updated>
+    </task>
+    <task id="LOCAL-00108" summary="переименовал example в files">
+      <option name="closed" value="true" />
+      <created>1748064093448</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1748064093448</updated>
+    </task>
+    <task id="LOCAL-00109" summary="изменил intro">
+      <option name="closed" value="true" />
+      <created>1748066697583</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1748066697583</updated>
+    </task>
+    <task id="LOCAL-00110" summary="обновлено Readme">
+      <option name="closed" value="true" />
+      <created>1748067878451</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1748067878451</updated>
+    </task>
+    <task id="LOCAL-00111" summary="обновлены xml">
+      <option name="closed" value="true" />
+      <created>1749221100921</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221100921</updated>
+    </task>
+    <task id="LOCAL-00112" summary="добавлены метод reset">
+      <option name="closed" value="true" />
+      <created>1749221130868</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221130868</updated>
+    </task>
+    <task id="LOCAL-00113" summary="добавлена валидация контекста и одинаковых путей">
+      <option name="closed" value="true" />
+      <created>1749221171731</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221171731</updated>
+    </task>
+    <task id="LOCAL-00114" summary="добавлен swing view">
+      <option name="closed" value="true" />
+      <created>1749221221953</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221221953</updated>
+    </task>
+    <task id="LOCAL-00115" summary="добавлен swing controller">
+      <option name="closed" value="true" />
+      <created>1749221230996</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221230996</updated>
+    </task>
+    <task id="LOCAL-00116" summary="добавлена панель действий">
+      <option name="closed" value="true" />
+      <created>1749221262133</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221262133</updated>
+    </task>
+    <task id="LOCAL-00117" summary="добавлена панель выполнения">
+      <option name="closed" value="true" />
+      <created>1749221272463</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221272463</updated>
+    </task>
+    <task id="LOCAL-00118" summary="добавлена панель выбора файлов">
+      <option name="closed" value="true" />
+      <created>1749221281977</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221281977</updated>
+    </task>
+    <task id="LOCAL-00119" summary="добавлена панель вывода состояния">
+      <option name="closed" value="true" />
+      <created>1749221303917</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221303917</updated>
+    </task>
+    <task id="LOCAL-00120" summary="ENUM для кнопок ввода-вывода">
+      <option name="closed" value="true" />
+      <created>1749221327351</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221327351</updated>
+    </task>
+    <task id="LOCAL-00121" summary="добавлен графический интерфейс">
+      <option name="closed" value="true" />
+      <created>1749221653802</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221653802</updated>
+    </task>
+    <task id="LOCAL-00122" summary="фикс лямбда функций">
+      <option name="closed" value="true" />
+      <created>1749221808734</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1749221808734</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Обновлено">
+      <option name="closed" value="true" />
+      <created>1749222207293</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1749222207293</updated>
+    </task>
+    <task id="LOCAL-00124" summary="фикс информационных сообщений">
+      <option name="closed" value="true" />
+      <created>1749223969032</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1749223969033</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="обновлен Readme" />
+    <MESSAGE value="добавлены конструкторы в PathBuilder" />
+    <MESSAGE value="Добавлен раздел работы с файлами" />
+    <MESSAGE value="Исправлены заголовки разделов" />
+    <MESSAGE value="переименован в Controller" />
+    <MESSAGE value="Класс для анализа ключа шифрования" />
+    <MESSAGE value="добавлен метод removeFile" />
+    <MESSAGE value="добавлен метод detectKey" />
+    <MESSAGE value="переименовал example в files" />
+    <MESSAGE value="изменил intro" />
+    <MESSAGE value="обновлено Readme" />
+    <MESSAGE value="обновлены xml" />
+    <MESSAGE value="добавлены метод reset" />
+    <MESSAGE value="добавлена валидация контекста и одинаковых путей" />
+    <MESSAGE value="добавлен swing view" />
+    <MESSAGE value="добавлен swing controller" />
+    <MESSAGE value="добавлена панель действий" />
+    <MESSAGE value="добавлена панель выполнения" />
+    <MESSAGE value="добавлена панель выбора файлов" />
+    <MESSAGE value="добавлена панель вывода состояния" />
+    <MESSAGE value="ENUM для кнопок ввода-вывода" />
+    <MESSAGE value="добавлен графический интерфейс" />
+    <MESSAGE value="фикс лямбда функций" />
+    <MESSAGE value="Обновлено" />
+    <MESSAGE value="фикс информационных сообщений" />
+    <option name="LAST_COMMIT_MESSAGE" value="фикс информационных сообщений" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
